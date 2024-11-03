@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="/public/stylesheets/contact.css">
 </head>
 <body>
+    <div class="background">
+        <div class="network" aria-hidden="true"></div>
+    </div>
     <div class="container">
         <header>
             <div class="header-content">
@@ -78,17 +81,17 @@
             Certifications
         </a>
         <a href="/public/views/projects.html">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="m18.7 8-5.1 5.2-2.8-2.7L7 14.3"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6"></path><path d="M8 6l-6 6 6 6"></path></svg>
             Projects
         </a>
-        <a href="/public/views/contact.html" class="active">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-            Contacts
+        <a href="/public/views/contact.html"  class="active">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            Contact
         </a>
     </nav>
 
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
+          document.addEventListener('DOMContentLoaded', (event) => {
             const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
             
             mobileNavLinks.forEach(link => {
@@ -98,6 +101,79 @@
                 });
             });
         });
+
+        // Network Effect
+        function createNetwork() {
+            const network = document.querySelector('.network');
+            const nodeCount = 50;
+            const nodes = [];
+
+            for (let i = 0; i < nodeCount; i++) {
+                const node = document.createElement('div');
+                node.classList.add('node');
+                node.style.left = `${Math.random() * 100}%`;
+                node.style.top = `${Math.random() * 100}%`;
+                network.appendChild(node);
+                nodes.push({
+                    element: node,
+                    x: parseFloat(node.style.left),
+                    y: parseFloat(node.style.top),
+                    vx: Math.random() * 0.2 - 0.1, // Normal speed
+                    vy: Math.random() * 0.2 - 0.1  // Normal speed
+                });
+            }
+
+            let lastTime = 0;
+            const targetFPS = 120;
+            const targetFrameTime = 1000 / targetFPS;
+
+            function updateNetwork(currentTime) {
+                if (!lastTime) lastTime = currentTime;
+                const deltaTime = currentTime - lastTime;
+
+                if (deltaTime >= targetFrameTime) {
+                    const connections = network.querySelectorAll('.connection');
+                    connections.forEach(conn => conn.remove());
+
+                    nodes.forEach(node => {
+                        node.x += node.vx;
+                        node.y += node.vy;
+
+                        if (node.x < 0 || node.x > 100) node.vx *= -1;
+                        if (node.y < 0 || node.y > 100) node.vy *= -1;
+
+                        node.element.style.left = `${node.x}%`;
+                        node.element.style.top = `${node.y}%`;
+
+                        nodes.forEach(otherNode => {
+                            if (node !== otherNode) {
+                                const dx = otherNode.x - node.x;
+                                const dy = otherNode.y - node.y;
+                                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                                if (distance < 20) {
+                                    const connection = document.createElement('div');
+                                    connection.classList.add('connection');
+                                    connection.style.left = `${node.x}%`;
+                                    connection.style.top = `${node.y}%`;
+                                    connection.style.width = `${distance}%`;
+                                    connection.style.transform = `rotate(${Math.atan2(dy, dx)}rad)`;
+                                    network.appendChild(connection);
+                                }
+                            }
+                        });
+                    });
+
+                    lastTime = currentTime;
+                }
+
+                requestAnimationFrame(updateNetwork);
+            }
+
+            requestAnimationFrame(updateNetwork);
+        }
+
+        createNetwork();
     </script>
 </body>
 </html>
