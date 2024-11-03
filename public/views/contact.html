@@ -30,7 +30,7 @@
             <h2>Contact Me</h2>
             <div class="contact-content">
                 <div class="contact-form">
-                    <form action="mailto:davidwagacira26@gmail.com" method="POST" enctype="text/plain">
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
@@ -47,7 +47,7 @@
                             <label for="message">Message</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit">Send Email</button>
+                        <button type="submit">Send Message</button>
                     </form>
                 </div>
                 <div class="contact-info">
@@ -91,7 +91,7 @@
     </nav>
 
     <script>
-          document.addEventListener('DOMContentLoaded', (event) => {
+        document.addEventListener('DOMContentLoaded', (event) => {
             const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
             
             mobileNavLinks.forEach(link => {
@@ -99,6 +99,24 @@
                     mobileNavLinks.forEach(l => l.classList.remove('active'));
                     this.classList.add('active');
                 });
+            });
+
+            // Form submission
+            const form = document.getElementById('contactForm');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const name = encodeURIComponent(document.getElementById('name').value);
+                const email = encodeURIComponent(document.getElementById('email').value);
+                const subject = encodeURIComponent(document.getElementById('subject').value);
+                const message = encodeURIComponent(document.getElementById('message').value);
+
+                const body = `${message}%0D%0A%0D%0AFrom: ${name} (${email})`;
+
+                const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=davidwagacira26@gmail.com&su=${subject}&body=${body}`;
+
+                window.open(gmailUrl, '_blank');
             });
         });
 
@@ -118,8 +136,8 @@
                     element: node,
                     x: parseFloat(node.style.left),
                     y: parseFloat(node.style.top),
-                    vx: Math.random() * 0.2 - 0.1, // Normal speed
-                    vy: Math.random() * 0.2 - 0.1  // Normal speed
+                    vx: Math.random() * 0.2 - 0.1,
+                    vy: Math.random() * 0.2 - 0.1
                 });
             }
 
