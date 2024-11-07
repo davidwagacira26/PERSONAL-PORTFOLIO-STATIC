@@ -102,8 +102,8 @@ main {
     align-items: center;
     text-align: center;
     gap: 2rem;
-    margin-bottom: 1rem; /* Reduced margin-bottom */
-    padding: 1rem 0 1rem; /* Reduced top padding */
+    margin-bottom: 1rem;
+    padding: 1rem 0 1rem;
     justify-content: center;
 }
 
@@ -187,8 +187,8 @@ main {
     position: relative;
     width: 16rem;
     height: 16rem;
-    margin: 0; /* Removed extra margin */
-    padding: 0; /* Removed extra padding */
+    margin: 0;
+    padding: 0;
 }
 
 .hero-image::before {
@@ -296,13 +296,13 @@ main {
     position: absolute;
     width: 4px;
     height: 4px;
-    background-color: var(--primary-color);
+    background-color: #3b82f6;
     border-radius: 50%;
 }
 .connection {
     position: absolute;
     height: 1px;
-    background-color: rgba(0, 123, 255, 0.3);
+    background-color: rgba(59, 130, 246, 0.3);
     transform-origin: left center;
 }
 footer {
