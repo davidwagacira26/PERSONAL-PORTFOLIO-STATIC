@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Wagacira - Portfolio</title>
+    <title>David Wagacira - CV</title>
     <link rel="shortcut icon" href="/assets/images/logoimage.png" type="image/png+xml">
     <style>
         :root {
@@ -104,184 +104,73 @@
             padding: 2rem 1rem;
         }
 
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .cv-header {
             text-align: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-            padding: 1rem 0 1rem;
-            justify-content: center;
-        }
-
-        .hero-content {
-            max-width: 600px;
-        }
-
-        .hero h2,
-        .hero h3,
-        .hero h4 {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .hero h2 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .hero h3 {
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 0.25rem;
-            animation: fadeInUp 0.8s ease forwards 1s;
-        }
-
-        .hero h3::before {
-            content: "";
-            display: block;
-            width: 3rem;
-            height: 0.125rem;
-            background-color: var(--primary-color);
-            margin-right: 1rem;
-        }
-
-        .hero h4 {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-top: 0.25rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 0.8s ease forwards 2s;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .button {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.25rem;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s, color 0.3s;
-            margin: 0.5rem;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease forwards 3s;
-        }
-
-        .button-primary {
-            background-color: transparent;
-            color: var(--primary-color);
-            border: 1px solid var(--primary-color);
-        }
-
-        .button-primary:hover {
-            background-color: var(--primary-color);
-            color: var(--text-color);
-        }
-
-        .hero-image {
-            position: relative;
-            width: 16rem;
-            height: 16rem;
-            margin: 0;
-            padding: 0;
-        }
-
-        .hero-image::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom right, var(--primary-color), transparent);
-            border-radius: 50%;
-            transform: rotate(-6deg);
-        }
-
-        .hero-image img {
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        .divider {
-            border-top: 1px solid var(--border-color);
-            margin: 1.5rem 0;
-        }
-
-        .skills {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            color: var(--text-muted);
             margin-bottom: 2rem;
         }
 
-        .about {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            max-width: 64rem;
-            margin: 0 auto;
-        }
-
-        .about-services {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-
-        .service {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .service-icon {
-            background-color: var(--border-color);
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .cv-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
             margin-bottom: 0.5rem;
         }
 
-        .service-icon svg {
-            width: 30px;
-            height: 30px;
-            color: var(--primary-color);
-        }
-
-        .about-content {
-            text-align: center;
-        }
-
-        .about h2 {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .about p {
+        .cv-header p {
+            font-size: 1.2rem;
             color: var(--text-muted);
+        }
+
+        .cv-section {
+            margin-bottom: 2rem;
+        }
+
+        .cv-section h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
             margin-bottom: 1rem;
+        }
+
+        .cv-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .cv-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .cv-item p {
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-item ul {
+            list-style-type: none;
+            padding-left: 1rem;
+        }
+
+        .cv-item ul li::before {
+            content: "•";
+            color: var(--primary-color);
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background-color: var(--border-color);
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
         }
 
         .background {
@@ -293,6 +182,7 @@
             z-index: -1;
             pointer-events: none;
         }
+
         .network {
             position: absolute;
             top: 0;
@@ -300,40 +190,20 @@
             width: 100%;
             height: 100%;
         }
+
         .node {
             position: absolute;
             width: 4px;
             height: 4px;
-            background-color: #3b82f6;
+            background-color: var(--primary-color);
             border-radius: 50%;
         }
+
         .connection {
             position: absolute;
             height: 1px;
-            background-color: rgba(59, 130, 246, 0.3);
+            background-color: rgba(0, 123, 255, 0.3);
             transform-origin: left center;
-        }
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding: 2rem 1rem;
-            margin-top: 3rem;
-            text-align: center;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-link {
-            color: var(--text-muted);
-            transition: color 0.3s ease;
-        }
-
-        .social-link:hover {
-            color: var(--primary-color);
         }
 
         @media (max-width: 767px) {
@@ -378,20 +248,6 @@
             }
         }
 
-        @media (min-width: 640px) {
-            .hero h2 {
-                font-size: 3rem;
-            }
-
-            .hero h3 {
-                font-size: 1.75rem;
-            }
-
-            .hero h4 {
-                font-size: 2.5rem;
-            }
-        }
-
         @media (min-width: 768px) {
             .nav-sidebar {
                 display: block;
@@ -407,44 +263,6 @@
                 margin-bottom: 0;
             }
 
-            .hero {
-                flex-direction: row;
-                text-align: left;
-                justify-content: space-between;
-            }
-
-            .hero-content {
-                flex: 1;
-            }
-
-            .hero h3 {
-                justify-content: flex-start;
-            }
-
-            .hero-image {
-                width: 20rem;
-                height: 20rem;
-            }
-
-            .skills {
-                justify-content: space-between;
-                padding: 0.25rem 0;
-            }
-
-            .about {
-                flex-direction: row;
-            }
-
-            .about-services {
-                width: 33.333333%;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .about-content {
-                width: 66.666667%;
-                text-align: left;
-            }
             nav a {
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
                 font-size: 14px;
@@ -457,20 +275,6 @@
 
             nav a:hover {
                 color: rgba(255, 255, 255, 1);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .hero h2 {
-                font-size: 3.75rem;
-            }
-
-            .hero h3 {
-                font-size: 1.875rem;
-            }
-
-            .hero h4 {
-                font-size: 3rem;
             }
         }
     </style>
@@ -495,84 +299,74 @@
         </header>
 
         <main>
-            <section class="hero">
-                <div class="hero-image">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image02-6DeFmR7pVwlH2B454WT7OISUzpHqCk.JPEG" alt="David Wagacira">
-                </div>
-                <div class="hero-content">
-                    <h2>Hello<span style="color: var(--primary-color);">.</span></h2>
-                    <h3>I'm David</h3>
-                    <h4>Software Developer</h4>
-                    <div>
-                        <a href="/public/views/projects.html" class="button button-primary">View Projects</a>
-                        <a href="#" class="button button-primary" onclick="openCV()">View CV</a>
-                    </div>
+            <section class="cv-header">
+                <h2>Curriculum Vitae</h2>
+                <p>Software Developer | +254 703100790 | davidwagacira26@gmail.com | Nairobi, Kenya</p>
+            </section>
+
+            <section class="cv-section">
+                <h3>Summary</h3>
+                <p>Ambitious computer science student and software engineer with hands-on experience in frontend development and a passion for creating seamless, user-centered web applications. Proven success in developing optimized, responsive web applications with Vanilla JavaScript, achieving high-performance scores and improved user engagement. Eager to leverage problem-solving skills and technical expertise to contribute to a dynamic development team.</p>
+            </section>
+
+            <section class="cv-section">
+                <h3>Technical Skills</h3>
+                <div class="skills-list">
+                    <span class="skill-item">JavaScript (ES6+)</span>
+                    <span class="skill-item">HTML5</span>
+                    <span class="skill-item">CSS3</span>
+                    <span class="skill-item">Python</span>
+                    <span class="skill-item">NextJS</span>
+                    <span class="skill-item">Bootstrap</span>
+                    <span class="skill-item">Tailwind CSS</span>
+                    <span class="skill-item">Git</span>
+                    <span class="skill-item">RESTful APIs</span>
                 </div>
             </section>
 
-            <div class="divider"></div>
-
-            <div class="skills">
-                <span>JavaScript (ES6+)</span>
-                <span>HTML5</span>
-                <span>CSS3</span>
-                <span>Python</span>
-                <span>NextJS</span>
-                <span>Bootstrap</span>
-                <span>Tailwind CSS</span>
-                <span>Git</span>
-                <span>RESTful APIs</span>
-            </div>
-
-            <div class="divider"></div>
-
-            <section id="about" class="about">
-                <div class="about-services">
-                    <div class="service">
-                        <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-                                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-                                <path d="M2 2l7.586 7.586"></path>
-                                <circle cx="11" cy="11" r="2"></circle>
-                            </svg>
-                        </div>
-                        <span>Front End Development</span>
-                    </div>
-                    <div class="service">
-                        <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
-                            </svg>
-                        </div>
-                        <span>Backend Development</span>
-                    </div>
-                    <div class="service">
-                        <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                            </svg>
-                        </div>
-                        <span>Database Management</span>
-                    </div>
+            <section class="cv-section">
+                <h3>Professional Experience</h3>
+                <div class="cv-item">
+                    <h4>NEW KENYA COOPERATIVE CREAMERIES LIMITED, NAIROBI / KENYA</h4>
+                    <p>Software Engineer Intern | October 2024 – Present</p>
+                    <p>This was an industrial attachment meant to provide real world application of computer science concepts as learnt on campus.</p>
+                    <h4>Self Service Customer Portal - Lead Developer</h4>
+                    <p>Tech Stack: Vanilla JavaScript, Laravel, HTML5, CSS3, MySQL, MPESA API, AfricasTalking API</p>
+                    <ul>
+                        <li>Led the development of the first ever self service portal currently under User Acceptance Tests (UATs).</li>
+                        <li>Delivered the solution in a span of 3 weeks surpassing the estimated time of 1.5 months from stakeholders.</li>
+                        <li>Leveraged Industry best Software-As-A Service (SaaS) APIs for Payments [MPESA] and Notifications [Africa's Talking]</li>
+                    </ul>
                 </div>
-                
-                <div class="about-content">
-                    <h2>About me</h2>
-                    <p>
-                        I am a passionate software developer with a love for creating innovative solutions to complex problems. 
-                        With a strong foundation in various programming languages and a keen interest in emerging technologies, 
-                        I strive to make a positive impact through my work.
-                    </p>
-                    <p>
-                        My expertise spans across front-end and back-end development, with a particular focus on creating 
-                        responsive and user-friendly web applications. I am constantly learning and adapting to new technologies 
-                        to stay at the forefront of the ever-evolving tech landscape.
-                    </p>
+                <div class="cv-item">
+                    <h4>Personal Blog</h4>
+                    <p>Tech Stack: NextJS, HTML5, Tailwind CSS, PostGres</p>
+                    <ul>
+                        <li>Developed a full-stack personal blog platform using Next.js, showcasing proficiency in modern web development frameworks</li>
+                        <li>Implemented responsive and visually appealing UI/UX design using Tailwind CSS, ensuring optimal user experience across devices</li>
+                        <li>Integrated PostgreSQL database for efficient data management and retrieval</li>
+                        <li>Implemented server-side rendering and optimized for performance.</li>
+                    </ul>
+                </div>
+                <div class="cv-item">
+                    <h4>FREELANCE, NAIROBI / KENYA</h4>
+                    <p>Junior Software Engineer | January 2024 – Present</p>
+                    <p>Working as a freelance software engineer with the intent of getting exposure in the Kenyan Tech ecosystem.</p>
+                    <ul>
+                        <li>Web frontend development using React, HTML5 and CSS3 for various clients.</li>
+                        <li>System Analysis & Design to suit different customer domain and technical requirements.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="cv-section">
+                <h3>Education</h3>
+                <div class="cv-item">
+                    <h4>ZETECH UNIVERSITY, NAIROBI / KENYA</h4>
+                    <p>Diploma Computer Science | Graduation: November 2024</p>
+                    <ul>
+                        <li>Software Engineering, Computer Networks Fundamentals, Data Structures & Algorithms</li>
+                    </ul>
                 </div>
             </section>
         </main>
@@ -679,10 +473,6 @@
         }
 
         createNetwork();
-
-        function openCV() {
-            window.open('https://docs.google.com/document/d/e/2PACX-1vQeIFifVqOSANG40ZsE67TldGvW7mtGRlLi3uU5BljO0PleCVJjQUUj0Nc50angeBU9ElcV5HR6G9X1/pub', '_blank');
-        }
     </script>
 </body>
 </html>
