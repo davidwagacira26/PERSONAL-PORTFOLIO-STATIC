@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
-// Network Effect
 function createNetwork() {
     const network = document.querySelector('.network');
     const nodeCount = 50;
@@ -25,8 +24,8 @@ function createNetwork() {
             element: node,
             x: parseFloat(node.style.left),
             y: parseFloat(node.style.top),
-            vx: Math.random() * 0.2 - 0.1, // Normal speed
-            vy: Math.random() * 0.2 - 0.1  // Normal speed
+            vx: Math.random() * 0.2 - 0.1,
+            vy: Math.random() * 0.2 - 0.1  
         });
     }
 
